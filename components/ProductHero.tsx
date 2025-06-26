@@ -5,7 +5,7 @@ export function ProductHero( {product}: ProductProps){
     return(
         <section className ="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Image
-                src={product.images[0]}
+                src={product.heroimage || product.images[0] || '/placeholder.png'}
                 alt={product.name}
                 width={500}
                 height={500}

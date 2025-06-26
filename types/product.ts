@@ -7,6 +7,7 @@ export type ProductProps = {
         images: string[];
         description: string;
         specs: string[];
+        heroimage: string;
         
         
     }
