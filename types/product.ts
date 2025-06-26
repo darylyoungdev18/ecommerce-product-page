@@ -3,8 +3,11 @@ export type ProductProps = {
         name: string;
         brand: string;
         price: number;
-        description: string;
         rating: number;
-        image: string;
+        images: string[];
+        description: string;
+        specs: string[];
+        
+        
     }
 }

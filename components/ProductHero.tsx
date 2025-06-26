@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { ProductProps } from '../../types/product';
+import { ProductProps } from '../types/product';
 
 export function ProductHero( {product}: ProductProps){
     return(
         <section className ="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Image
-                src={product.image}
+                src={product.images[0]}
                 alt={product.name}
                 width={500}
                 height={500}

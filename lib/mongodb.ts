@@ -5,6 +5,11 @@ const options = {}
 let client;
 let clientPromise: Promise<MongoClient>;
 
+ //included _mongoClientPromise to prevent multiple connections causing issues due to reloads in development mode
+declare global {
+  var _mongoClientPromise: Promise<MongoClient>;
+}
+
 if (process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable to maintain the MongoDB client
   if (!global._mongoClientPromise) {

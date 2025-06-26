@@ -1,17 +1,11 @@
-import clientPromise from '../lib/mongodb';
-import { ProductHero } from '../components/product-hero';
-import { ProductDetails } from '../components/product-details';
-import { Recommendations } from '../components/recommendations';
+import { getProductByName } from '../utils/getProduct';
+import { ProductHero } from '../components/ProductHero';
+import { ProductDetails } from '../components/ProductDetails';
 
-async funtion getProduct(){
-  const client = await clientPromise;
-  const db = client.db('ecommerce');
-  const product = await db.collection('products').findOne({ slug: 'product-slug' });
-  return product;
-}
+
 
 export default async function ProductPage() {
-  const product = await getProduct();
+  const product = await getProductByName('UltraSoft Hoodie');
   if (!product) {
     return <div>Product not found</div>;
   }
@@ -21,8 +15,7 @@ export default async function ProductPage() {
       <div className=" mx-auto my-4">
       <ProductDetails product={product}/>
       </div>
-      <Recommendations/>
-    </main>>
+    </main>
 
   );
 }

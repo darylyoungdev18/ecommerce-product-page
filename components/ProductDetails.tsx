@@ -1,15 +1,19 @@
-import { ProductProps } from '../../types/product';
+import { ProductProps } from '../types/product';
 
+//using map to return an array of images
 export function ProductDetails({product}: ProductProps) {
     return(
         <section className="max-w-3xl bg-gray mx-auto p-6 rounded-lg shadow-md">
-            {product.image}.forEach((image) => {
-                // multiple images will appear in a slide
-                return(
-                <img src ={product.image} alt= {product.name} className="w-full h-64 object-cover rounded-lg mb-4" />
-                );
-            });
-
+           
+            {Array.isArray(product.images) && product.images.map((image, index) => (
+                <img
+                key={index}
+                src={image}
+                alt={product.name}
+                className="w-full h-64 object-cover rounded-lg mb-4"
+                />
+                
+            ))}
            <h2 className=" text-4xl font-bold mb-3">
             {product.name}
             </h2>
